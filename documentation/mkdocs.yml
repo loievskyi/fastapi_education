@@ -1,0 +1,13 @@
+site_name: FastAPI education project
+
+nav:
+  - Home: index.md
+  - Examples: examples.md
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - search.suggest
+    - search.highlight
+    - content.code.copy
