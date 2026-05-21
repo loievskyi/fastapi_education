@@ -2,14 +2,18 @@ x-service-backend-common: &service-backend-common
   build:
     dockerfile: Dockerfile
   restart: no
+  init: true
+  stop_grace_period: 2s
   env_file:
     - .env
   volumes:
     - ./backend/app:/app:ro
-  command: |
-    sh -c "
-    uvicorn main:app --host=0.0.0.0 --port=1231 --reload
-    "
+  command:
+    - uvicorn
+    - main:app
+    - --host=0.0.0.0
+    - --port=1231
+    - --reload
   networks:
     - main_network
 
