@@ -1,7 +1,7 @@
 x-service-backend-common: &service-backend-common
   build:
     dockerfile: Dockerfile
-  restart: no
+  restart: always
   init: true
   stop_grace_period: 2s
   env_file:
@@ -12,7 +12,7 @@ x-service-backend-common: &service-backend-common
     - uvicorn
     - main:app
     - --host=0.0.0.0
-    - --port=1231
+    - --port=12321
     - --reload
   networks:
     - main_network
@@ -37,7 +37,7 @@ services:
     container_name: backend1
     hostname: backend1
     ports:
-      - "12345:1231"
+      - "12345:12321"
 
   backend2:
     <<: *service-backend-common
@@ -45,6 +45,7 @@ services:
     hostname: backend2
     ports:
       - "12346:1231"
+      - "12346:12321"
 
 networks:
   main_network:

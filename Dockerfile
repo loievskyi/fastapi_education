@@ -19,6 +19,6 @@ RUN uv sync --frozen --no-install-project
 
 COPY backend/app /app
 
-EXPOSE 1231
+EXPOSE 12321
 
 CMD ["python", "main.py"]
