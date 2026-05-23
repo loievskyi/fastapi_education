@@ -1,14 +1,4 @@
-import socket
-
-from fastapi import FastAPI
-
-app = FastAPI(
-    root_path="/api",
-)
+from app_factory import create_app
 
 
-@app.get("/info")
-async def get_backend():
-    return {
-        "backend": socket.gethostname()
-    }
+app = create_app()
