@@ -14,6 +14,6 @@ async def get_backend():
     }
 
 
-@info_router.get("/database", tags=["info"], summary="Get the current database connection url")
-async def get_database_url():
-    return settings.DATABASE_ASYNC_URL
+@info_router.get("/database_host", tags=["info"], summary="Get the current database hostname")
+async def get_database_hostname():
+    return settings.PGHOST
