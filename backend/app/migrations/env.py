@@ -7,6 +7,7 @@ from alembic import context
 
 from settings import settings
 from apps.core.base_models import BaseModel
+from apps.users.models import User  # noqa: F401
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -14,7 +15,7 @@ config = context.config
 config.set_section_option(
     config.config_ini_section,
     "sqlalchemy.url",
-    f"{settings.DATABASE_ASYNC_URL}?async_fallback=True"
+    f"{settings.DATABASE_SYNC_URL}"
 )
 
 # Interpret the config file for Python logging.
