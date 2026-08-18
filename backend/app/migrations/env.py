@@ -14,7 +14,7 @@ config = context.config
 config.set_section_option(
     config.config_ini_section,
     "sqlalchemy.url",
-    f"{settings.DATABASE_ASYNC_URL}?async_fallback=True"
+    f"{settings.DATABASE_SYNC_URL}"
 )
 
 # Interpret the config file for Python logging.

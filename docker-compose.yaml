@@ -8,6 +8,7 @@ x-service-backend-common: &service-backend-common
     - .env
   volumes:
     - ./backend/app:/app:ro
+    - ./backend/app/migrations:/app/migrations:rw
   command:
     - uvicorn
     - main:app

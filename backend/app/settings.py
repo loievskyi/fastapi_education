@@ -17,6 +17,12 @@ class PostgresSettings(BaseSettings):
 
     # noinspection PyPep8Naming
     @property
+    def DATABASE_SYNC_URL(self) -> str:
+        return (f"postgresql://{self.PGUSER}:{self.PGPASSWORD}@"
+                f"{self.PGHOST}:{self.PGPORT}/{self.PGDATABASE}")
+
+    # noinspection PyPep8Naming
+    @property
     def DATABASE_ASYNC_URL(self) -> str:
         return (f"postgresql+asyncpg://{self.PGUSER}:{self.PGPASSWORD}@"
                 f"{self.PGHOST}:{self.PGPORT}/{self.PGDATABASE}")
